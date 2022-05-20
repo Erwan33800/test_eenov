@@ -24,3 +24,9 @@ Ecris du code qui reproduit la sortie de la commande, mais qui fonctionne en ré
 - You can (and we would love it if you do) write test (but it's ok if you are not confident with it).
 - Tu peux réaliser des tests unitaires si tu penses pouvoir en réaliser sur ton code.
 - Ecris dans ce README les commandes à réaliser pour exécuter ton programme.
+
+
+Pour lancer le programme : 
+
+il faut se placer dans le dossier reponseErwan en faisant : cd reponseErwan
+et il faut lancer la solution en faisant node index.js 'user_id' 'loyalty_card_id'   --> inscrire les id sans les apostrophes
