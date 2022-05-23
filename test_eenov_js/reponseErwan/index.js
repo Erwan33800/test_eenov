@@ -15,6 +15,7 @@ var pointsByLCid;
 var nameLC;
 var loyaltyCardsObject = {};
 
+
 if (LCId > 5 && userId > 6) {
     console.log("Erreur. Veuillez choisir une carte de fidélité parmis les suivantes : 1 = Carrefour; 2 = Leclerc; 3 = Macdo; 4 = Fnac; 5 = Subway ainsi qu'un utilisateur entre 1 et 6")
 } else {
