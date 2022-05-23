@@ -7,17 +7,26 @@ const rewards = jsonData.rewards;
 // process.argv va nous permettre de passer des arguments via la ligne de commande
 const myArgs = process.argv.slice(2); // sert à ne pas prendre en compte les 2 premières lignes de process.argv qui ne sont pas utiles pour nous
 
-const userId = parseInt(myArgs[0]);
-const LCId = parseInt(myArgs[1]);
+var userId = parseInt(myArgs[0]);
+var LCId = parseInt(myArgs[1]);
 var points;
 var pointsByLCByUser;
 var pointsByLCid;
 var nameLC;
 var loyaltyCardsObject = {};
 
+var errorUser = "Erreur. Veuillez choisir un utilisateur entre 1 et 6";
+var errorLCId = "Erreur. Veuillez choisir une carte de fidélité parmis les suivantes : 1 = Carrefour; 2 = Leclerc; 3 = Macdo; 4 = Fnac; 5 = Subway";
 
-if (LCId > 5 && userId > 6) {
-    console.log("Erreur. Veuillez choisir une carte de fidélité parmis les suivantes : 1 = Carrefour; 2 = Leclerc; 3 = Macdo; 4 = Fnac; 5 = Subway ainsi qu'un utilisateur entre 1 et 6")
+
+if(isNaN(userId)) {
+    console.log(errorUser);
+}else if(isNaN(LCId)) {
+    console.log(errorLCId);
+} else if ((userId <= 1) && (userId >= 6)) {
+    console.log(errorUser)
+} else if ((LCId <= 1) && (LCId >= 5)) {
+    console.log(errorLCId)
 } else {
     rewards.forEach(e => {
         if (e.user_id === userId){
@@ -33,7 +42,9 @@ if (LCId > 5 && userId > 6) {
                 if(i.loyalty_card_id === i.loyalty_card_id) {
                     const filteredLoyaltyCardByUser = filteredUser.filter(obj => obj.loyalty_card_id === i.loyalty_card_id);
                     pointsByLCByUser = filteredLoyaltyCardByUser.map(item => item.points).reduce((prev, curr) => prev + curr, 0);
+
                     // console.log("nb de points du user " + userId + " de la Lc de " + i.loyalty_card_id + " : " + pointsByLCByUser)
+                    
                     if (i.loyalty_card_id === 1) {
                         var nameLC = "Carrefour"
                     }
@@ -56,7 +67,7 @@ if (LCId > 5 && userId > 6) {
                         "name" : nameLC
         
                     }
-                    // console.log(loyaltyCardsObject)
+                   // console.log(loyaltyCardsObject)
                 }
             })
         }
