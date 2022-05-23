@@ -56,7 +56,7 @@ if (LCId > 5 && userId > 6) {
                         "name" : nameLC
         
                     }
-                    console.log(loyaltyCardsObject)
+                    // console.log(loyaltyCardsObject)
                 }
             })
         }
