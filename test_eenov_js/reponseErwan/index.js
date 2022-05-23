@@ -4,6 +4,7 @@ const jsonData = require('../input.json');
 const loyaltyCards = jsonData.loyalty_cards;
 const rewards = jsonData.rewards;
 
+// process.argv va nous permettre de passer des arguments via la ligne de commande
 const myArgs = process.argv.slice(2); // sert à ne pas prendre en compte les 2 premières lignes de process.argv qui ne sont pas utiles pour nous
 
 const userId = parseInt(myArgs[0]);
